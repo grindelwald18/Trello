@@ -1,0 +1,16 @@
+{
+  "name": "trello",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/html/index.html",
+  "scripts": {
+    "dev": "parcel --open",
+    "build": "parcel build"
+  },
+  "keywords": [],
+  "author": "Sergey",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

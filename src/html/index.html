@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trello</title>
+    <link rel="stylesheet" href="/src/css/index.css" />
+    <script src="/src/js/index.js" type="module"></script>
+  </head>
+  <body>
+    <section class="trello">
+      <div class="container">
+        <div class="trello__header">
+          <div class="trello__title">
+            <h1>TRELLO</h1>
+          </div>
+          <div class="watch" id="watch">
+            <span id="houers">12</span><span id="seconds">:</span><span class="minets">50</span>
+          </div>
+        </div>
+        <div class="trello__wrapper" id="wrapper">
+          <div class="section">
+            <div class="section__header">
+              <div class="section__name" id="todo">TODO</div>
+              <div class="section__counter" id="todo__counter">1</div>
+            </div>
+            <div class="card-section" date-status="todo">
+              <div class="card">
+                <div class="card-info">
+                  <div class="card__title">Отправить письмо</div>
+                  <div class="card__description">Надо пойти на почту к 12 часам дня</div>
+                  <div class="executor">Сергей</div>
+                </div>
+                <div class="card__menu">
+                  <button class="menu-btn delete" date-role="delete">X</button>
+                  <button class="menu-btn edit" date-role="edit">EDIT</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-info">
+                  <div class="card__title">Отправить письмо</div>
+                  <div class="card__description">
+                    Надо пойти на почту к 12 часам дня safasdasdadassd asbhd saghs agdadgs
+                    svdgsvgdvaghdvgasvddvdv asdtsdryasdsacdrtcdfsacdf
+                  </div>
+                  <div class="executor">Сергей</div>
+                </div>
+                <div class="card__menu">
+                  <button class="menu-btn delete" date-role="delete">X</button>
+                  <button class="menu-btn edit" date-role="edit">EDIT</button>
+                </div>
+              </div>
+            </div>
+            <div class="section__buttons" id="add">
+              <button class="button">ADD TODO</button>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section__header">
+              <div class="section__name" id="in-progress">IN PROGRESS</div>
+              <div class="section__counter" id="inprogress__counter">2</div>
+            </div>
+            <div class="card-section" date-status="inprogress">
+              <div class="card">
+                <div class="card-info">
+                  <div class="card__title">Отправить письмо</div>
+                  <div class="card__description">Надо пойти на почту к 12 часам дня</div>
+                  <div class="executor">Сергей</div>
+                </div>
+                <div class="card__menu">
+                  <button class="menu-btn delete" date-role="delete">X</button>
+                  <button class="menu-btn edit" date-role="edit">EDIT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section__header">
+              <div class="section__name" id="done">DONE</div>
+              <div class="section__counter" id="done__counter">1</div>
+            </div>
+            <div class="card-section" date-status="done"></div>
+            <div class="section__buttons" id="del">
+              <button class="button">DEL ALL</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
