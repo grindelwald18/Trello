@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-/* @import 'bootstrap/css/bootstrap'; */
+@import 'bootstrap/scss/bootstrap';
 @font-face {
   font-family: 'CrystalRevived';
   src: url('/src/font/389-font.otf');
@@ -21,6 +21,7 @@ button {
   padding: 50px 100px;
   min-height: 100vh;
   display: flex;
+  margin: none;
   flex-direction: column;
   gap: 25px;
   background-color: rgb(53, 53, 53);
@@ -78,15 +79,15 @@ button {
   justify-content: space-between;
 }
 
-#todo {
+#todo-name {
   color: rgb(206, 194, 180);
 }
 
-#in-progress {
+#inProgress-name {
   color: rgb(205, 139, 59);
 }
 
-#done {
+#done-name {
   color: rgb(117, 205, 59);
 }
 
@@ -136,11 +137,13 @@ button {
 
 .more-info {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 5px;
+  /* justify-content: space-between; */
   color: rgb(205, 139, 59);
 }
 
-.cretedAt {
+.createdAt {
   font-family: 'CrystalRevived';
   font-size: 20px;
 }
@@ -153,12 +156,14 @@ button {
 .card__description {
   font-size: 16px;
   max-height: 120px;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .executor {
   font-size: 16px;
   font-weight: 500;
-  /* color: white; */
 }
 
 .card__menu {
