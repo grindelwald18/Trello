@@ -114,7 +114,7 @@ export function currentDate(date) {
   }`;
 }
 
-export function buildTemplate({id, title, description, user, createdAt}) {
+export function buildTemplate({id, title, description, user, createdAt, status}) {
   const date = currentDate(createdAt);
   const cardTemplate = `
 
@@ -122,7 +122,7 @@ export function buildTemplate({id, title, description, user, createdAt}) {
         <div class="card-info">
           <div class="card__title">${title}</div>
           <div class="card__description">${description}</div>
-          <div class="more-info">
+          <div class="more-info ${status}">
             <div class="executor">${user.name}</div>
             <div class="createdAt">${date}</div>
           </div>
@@ -148,6 +148,6 @@ export function drop(event) {
   let elementId = event.dataTransfer.getData('id');
   const card = arrOfTodos.find(element => element.id == elementId);
   card.status = event.currentTarget.dataset.status;
-  event.currentTarget.insertAdjacentHTML('beforeend', buildTemplate(card));
-  // renderTodos(arrOfTodos);
+  setTodosToLocalStorage(arrOfTodos);
+  renderTodos(arrOfTodos);
 }

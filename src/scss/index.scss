@@ -91,6 +91,18 @@ button {
   color: rgb(117, 205, 59);
 }
 
+.todo {
+  color: rgb(206, 194, 180);
+}
+
+.inProgress {
+  color: rgb(205, 139, 59);
+}
+
+.done {
+  color: rgb(117, 205, 59);
+}
+
 .section__buttons {
   position: relative;
   bottom: 0;
@@ -140,7 +152,7 @@ button {
   flex-direction: column;
   gap: 5px;
   /* justify-content: space-between; */
-  color: rgb(205, 139, 59);
+  // color: rgb(205, 139, 59);
 }
 
 .createdAt {
