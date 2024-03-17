@@ -118,6 +118,36 @@
             </div>
           </div>
         </div>
+        <div
+          class="modal fade"
+          id="approvedModal"
+          tabindex="-1"
+          aria-labelledby="approvedModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="approvedModalLabel">Approve delete todo</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">Do you really want to delete todo?</div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cancel
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="trello__header">
           <div class="trello__title">
             <h1>TRELLO</h1>
@@ -157,8 +187,8 @@
               <div class="section__counter" id="done__counter">0</div>
             </div>
             <div class="card-section" data-status="done" id="done"></div>
-            <div class="section__buttons" id="del">
-              <button class="button">DEL ALL</button>
+            <div class="section__buttons">
+              <button class="button" id="del">DEL ALL</button>
             </div>
           </div>
         </div>

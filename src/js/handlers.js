@@ -6,6 +6,7 @@ import {
   showCurrentUserData,
 } from './methods';
 import {Todo} from './models';
+import {Modal} from 'bootstrap';
 
 export function submitAddTodoForm(event) {
   event.preventDefault();
@@ -54,16 +55,35 @@ export function handelClickEditButton({target}, id) {
 }
 
 export function handleClickDeleteButton({target}) {
+  let cardId = target.dataset.id;
   if (target.dataset.role === 'delete') {
-    const cardId = target.dataset.id;
-    let numberOfTodo = 0;
-    arrOfTodos.forEach((todo, index) => {
-      if (todo.id == cardId) {
-        numberOfTodo = index;
-      }
+    const modal = document.querySelector('#approvedModal');
+    const modalInstance = new Modal(modal);
+    modalInstance.show();
+    getTodosFromLocalStorage(arrOfTodos);
+    const confirmButton = modal.querySelector('.btn-primary');
+    confirmButton.addEventListener('click', () => {
+      console.log(cardId);
+      arrOfTodos.forEach((todo, index) => {
+        console.log(index);
+        if (todo.id == cardId) {
+          console.log('нужный номер', index);
+          arrOfTodos.splice(index, 1);
+        }
+      });
+      setTodosToLocalStorage(arrOfTodos);
+      renderTodos(arrOfTodos);
     });
-    arrOfTodos.splice(numberOfTodo, 1);
-    setTodosToLocalStorage(arrOfTodos);
-    renderTodos(arrOfTodos);
   }
+}
+
+export function handleClickDeleteAllDoneTodosButton() {
+  getTodosFromLocalStorage(arrOfTodos);
+  const filteredTodos = arrOfTodos.filter(todo => todo.status !== 'done');
+  arrOfTodos.length = 0;
+  filteredTodos.forEach(todo => {
+    arrOfTodos.push(todo);
+  });
+  setTodosToLocalStorage(arrOfTodos);
+  renderTodos(arrOfTodos);
 }

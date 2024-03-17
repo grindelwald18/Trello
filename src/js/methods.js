@@ -1,5 +1,5 @@
 import {arrOfUser, arrOfTodos} from './models.js';
-import {Modal, Dropdown} from 'bootstrap';
+import {Modal} from 'bootstrap';
 
 export function getTodosFromLocalStorage(arrOfTodos) {
   const todosJSON = localStorage.getItem('todos');
@@ -146,8 +146,25 @@ export function drag(event) {
 
 export function drop(event) {
   let elementId = event.dataTransfer.getData('id');
+  let inProgressCounter = 0;
   const card = arrOfTodos.find(element => element.id == elementId);
-  card.status = event.currentTarget.dataset.status;
-  setTodosToLocalStorage(arrOfTodos);
-  renderTodos(arrOfTodos);
+
+  if (event.currentTarget.dataset.status === 'inProgress') {
+    arrOfTodos.forEach(element => {
+      if (element.status == 'inProgress') {
+        inProgressCounter += 1;
+      }
+    });
+    if (inProgressCounter <= 5) {
+      card.status = event.currentTarget.dataset.status;
+      setTodosToLocalStorage(arrOfTodos);
+      renderTodos(arrOfTodos);
+    } else {
+      console.log('в inProgress уже 6 картачек ');
+    }
+  } else {
+    card.status = event.currentTarget.dataset.status;
+    setTodosToLocalStorage(arrOfTodos);
+    renderTodos(arrOfTodos);
+  }
 }
