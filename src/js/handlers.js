@@ -58,6 +58,8 @@ export function handleClickDeleteButton({target}) {
   let cardId = target.dataset.id;
   if (target.dataset.role === 'delete') {
     const modal = document.querySelector('#approvedModal');
+    const alert = document.querySelector('.alert');
+    alert.textContent = 'Do you really want to delete todo?';
     const modalInstance = new Modal(modal);
     modalInstance.show();
     getTodosFromLocalStorage(arrOfTodos);
@@ -79,11 +81,19 @@ export function handleClickDeleteButton({target}) {
 
 export function handleClickDeleteAllDoneTodosButton() {
   getTodosFromLocalStorage(arrOfTodos);
-  const filteredTodos = arrOfTodos.filter(todo => todo.status !== 'done');
-  arrOfTodos.length = 0;
-  filteredTodos.forEach(todo => {
-    arrOfTodos.push(todo);
+  const modal = document.querySelector('#approvedModal');
+  const alert = document.querySelector('.alert');
+  alert.textContent = 'Do you really want to delete all done todos?';
+  const modalInstance = new Modal(modal);
+  modalInstance.show();
+  const confirmButton = modal.querySelector('.btn-primary');
+  confirmButton.addEventListener('click', () => {
+    const filteredTodos = arrOfTodos.filter(todo => todo.status !== 'done');
+    arrOfTodos.length = 0;
+    filteredTodos.forEach(todo => {
+      arrOfTodos.push(todo);
+    });
+    setTodosToLocalStorage(arrOfTodos);
+    renderTodos(arrOfTodos);
   });
-  setTodosToLocalStorage(arrOfTodos);
-  renderTodos(arrOfTodos);
 }

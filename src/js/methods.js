@@ -160,7 +160,11 @@ export function drop(event) {
       setTodosToLocalStorage(arrOfTodos);
       renderTodos(arrOfTodos);
     } else {
-      console.log('в inProgress уже 6 картачек ');
+      const modal = document.querySelector('#approvedModal');
+      const alert = document.querySelector('.alert');
+      alert.textContent = 'There are already 6 tasks in the inProgress column';
+      const modalInstance = new Modal(modal);
+      modalInstance.show();
     }
   } else {
     card.status = event.currentTarget.dataset.status;
